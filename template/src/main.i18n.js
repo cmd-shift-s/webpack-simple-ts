@@ -8,5 +8,5 @@ Vue.config.fallbackLang = 'en'
 
 const locales = ['ko', 'en']
 locales.forEach((lang) => {
-  Vue.locale(lang, require(`i18n/${lang}`))
+  Vue.locale(lang, require(`i18n/${lang}.json`))
 })

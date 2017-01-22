@@ -1,9 +1,7 @@
-import Vue from 'vue'
 import App from 'src/App.vue'
 import util from 'test/unit/util'
 
 describe('Vue.vue', () => {
-
   describe('i18n', () => {
     const newVM = util.newVM(App)
     const ko = require('i18n/ko.json')
@@ -11,7 +9,7 @@ describe('Vue.vue', () => {
     it('works with ko.msg', () => {
       const vm = newVM()
 
-      vm.msg.should.equal(ko.msg)
+      vm.$('h1').text().should.equal(ko.msg)
     })
   })
 
