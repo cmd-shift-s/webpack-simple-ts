@@ -43,6 +43,7 @@ module.exports = {
       'vue$': 'vue/dist/vue.common.js',
       'src': path.resolve(__dirname, 'src'),
       'components': path.resolve(__dirname, 'src', 'components'),
+      'i18n': path.resolve(__dirname, 'src', 'i18n'),
       'test': path.resolve(__dirname, 'test')
     }
   },
