@@ -26,6 +26,11 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+  beforeMount() {
+    axios.get('/api/msg').then(({data}) => {
+      this.msg = data.msg
+    })
   }
 }
 </script>
