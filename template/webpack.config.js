@@ -65,6 +65,12 @@ module.exports = {
       template: 'index.html',
       inject: true,
       chunks: ['app']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'test.html',
+      template: 'index.html',
+      inject: true,
+      chunks: ['test']
     })
   ]
 }
@@ -73,7 +79,7 @@ if (process.env.NODE_ENV === 'production') {
   delete module.exports.entry.test
   module.exports.devtool = false // '#source-map'
   // http://vue-loader.vuejs.org/en/workflow/production.html
-  module.exports.plugins = (module.exports.plugins || []).concat([
+  module.exports.plugins = [
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
@@ -87,6 +93,12 @@ if (process.env.NODE_ENV === 'production') {
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'index.html',
+      inject: true,
+      chunks: ['app']
     })
-  ])
+  ]
 }
