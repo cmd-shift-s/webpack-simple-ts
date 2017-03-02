@@ -23,6 +23,18 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue',
+        options: {
+          loaders: {
+            {{#sass}}
+            // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
+            // the "scss" and "sass" values for the lang attribute to the right configs here.
+            // other preprocessors should work out of the box, no loader config like this necessary.
+            'scss': 'vue-style-loader!css-loader!sass-loader',
+            'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+            {{/sass}}
+          }
+          // other vue-loader options go here
+        }
       },
       {
         test: /\.js$/,
@@ -41,7 +53,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue'],
     alias: {
-      'vue$': 'vue/dist/vue.common.js',
+      'vue$': 'vue/dist/vue.esm.js'
       'src': path.resolve(__dirname, 'src'),
       'components': path.resolve(__dirname, 'src', 'components'),
       'i18n': path.resolve(__dirname, 'src', 'i18n'),

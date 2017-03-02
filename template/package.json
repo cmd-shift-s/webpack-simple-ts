@@ -5,11 +5,11 @@
   "author": "{{ author }}",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "vue": "^2.1.0"
+    "vue": "^2.2.1"
   },
   "devDependencies": {
     "axios": "^0.15.3",
@@ -17,8 +17,7 @@
     "babel-core": "^6.0.0",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.0.0",
-    "babel-preset-es2015": "^6.0.0",
-    "babel-preset-stage-0": "^6.16.0",
+    "babel-preset-latest": "^6.0.0",
     "cross-env": "^3.0.0",
     "css-loader": "^0.25.0",
     "eslint": "^3.13.0",
@@ -32,13 +31,17 @@
     "html-webpack-plugin": "^2.26.0",
     "jquery": "^3.1.1",
     "vue-i18n": "^4.10.0",
-    "vue-loader": "^10.0.0",
     "mocha": "^3.2.0",
     "mocha-loader": "^1.1.0",
     "should": "^11.1.2",
     "should-sinon": "0.0.5",
     "sinon": "^1.17.7",
-    "vue-template-compiler": "^2.1.0",
+    {{#sass}}
+    "node-sass": "^4.5.0",
+    "sass-loader": "^5.0.1",
+    {{/sass}}
+    "vue-loader": "^11.0.0",
+    "vue-template-compiler": "^2.2.1",
     "webpack": "^2.2.0",
     "webpack-dev-server": "^2.2.0"
   }
