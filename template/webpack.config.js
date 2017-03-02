@@ -4,8 +4,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: {
-      app: './src/main.js',
-      test: 'mocha!./test/unit'
+    app: './src/main.js',
+    test: 'mocha!./test/unit'
   },
   output: {
     path: path.resolve(__dirname, './dist'),
