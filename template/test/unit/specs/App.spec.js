@@ -27,16 +27,12 @@ describe('Vue.vue', () => {
       axiosMock.restore()
     })
 
-    it('works with msg', (done) => {
-      newVM().then(vm => {
-        // data
-        vm.msg.should.equal(msg)
-        // view
-        vm.$('h1').text().should.equal(msg)
-        done()
-      }).catch(err => {
-        done(err)
-      })
+    it('works with msg', async () => {
+      const vm = await newVM()
+      // data
+      vm.msg.should.equal(msg)
+      // view
+      vm.$('h1').text().should.equal(msg)
     })
   })
 })
