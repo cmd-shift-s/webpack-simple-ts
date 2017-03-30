@@ -129,6 +129,6 @@ function createAxiosMock() {
   return new MockAdapter(axios)
 }
 
-module.exports = {
+export default {
   newVM, asyncNewVM, mockdata, mock, mocks, createAxiosMock
 }
