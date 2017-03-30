@@ -17,7 +17,7 @@
     "babel-core": "^6.0.0",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.0.0",
-    "babel-preset-latest": "^6.0.0",
+    "babel-preset-env": "^1.2.2",
     "cross-env": "^3.0.0",
     "css-loader": "^0.25.0",
     "eslint": "^3.13.0",
