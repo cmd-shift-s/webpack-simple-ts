@@ -15,7 +15,7 @@ describe('Vue.vue', () => {
 
   describe('/api/msg', () => {
     const newVM = util.asyncNewVM(App)
-    const msg = util.mockdata('{{lorem.sentence}}')
+    const msg = util.mockdata('\{{lorem.sentence}}')
 
     const axiosMock = util.createAxiosMock()
 
