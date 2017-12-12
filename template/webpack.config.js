@@ -44,7 +44,7 @@ module.exports = {
       },
       {
         test: /\.vue$/,
-        loader: 'vue',
+        loader: 'vue-loader',
         options: {
           loaders: {
             // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
@@ -66,12 +66,12 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         exclude: /node_modules/
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file',
+        loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]'
         }
@@ -82,10 +82,7 @@ module.exports = {
     extensions: ['*', '.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      'src': path.resolve(__dirname, 'src'),
-      'components': path.resolve(__dirname, 'src', 'components'),
-      'i18n': path.resolve(__dirname, 'src', 'i18n'),
-      'test': path.resolve(__dirname, 'test')
+      '@': path.resolve(__dirname, 'src')
     }
   },
   devServer: {
