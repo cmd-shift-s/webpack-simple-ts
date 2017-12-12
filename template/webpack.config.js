@@ -4,13 +4,12 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: {
-    app: './src/main.js',
-    test: 'mocha!./test/unit'
+    app: './src/main.js'
   },
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/',
-    filename: '[name].build.js'
+    filename: 'build.js'
   },
   module: {
     rules: [
@@ -100,12 +99,6 @@ module.exports = {
       template: 'index.html',
       inject: true,
       chunks: ['app']
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'test.html',
-      template: 'index.html',
-      inject: true,
-      chunks: ['test']
     })
   ]
 }
@@ -114,7 +107,7 @@ if (process.env.NODE_ENV === 'production') {
   delete module.exports.entry.test
   module.exports.devtool = false // '#source-map'
   // http://vue-loader.vuejs.org/en/workflow/production.html
-  module.exports.plugins = [
+  module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
@@ -128,12 +121,6 @@ if (process.env.NODE_ENV === 'production') {
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'index.html',
-      inject: true,
-      chunks: ['app']
     })
-  ]
+  ])
 }
