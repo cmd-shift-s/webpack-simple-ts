@@ -7,8 +7,7 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "build": "npm run lint && npm test && cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "lint": "eslint --ext .js,.vue src test",
+    "build": "npm test && cross-env NODE_ENV=production webpack --progress --hide-modules",
     "test": "jest",
     "coverage": "jest --coverage"
   },
@@ -21,31 +20,22 @@
     "not ie <= 8"
   ],
   "devDependencies": {
-    "babel-eslint": "^8.0.3",
-    "babel-core": "^6.26.0",
-    "babel-jest": "^21.2.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-stage-3": "^6.24.1",
+    "@gongzza/vue-property-decorator": "^5.2.3",
+    "@types/jest": "^21.1.8",
+    "@types/webpack": "^3.8.1",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
-    "eslint": "^4.13.1",
-    "eslint-config-standard": "^11.0.0-beta.0",
-    "eslint-loader": "^1.9.0",
-    "eslint-plugin-html": "^4.0.1",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-node": "^5.2.1",
-    "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1",
     "file-loader": "^1.1.4",
     "html-webpack-plugin": "^2.30.1",
     "jest": "^21.2.1",
     "jest-serializer-vue": "^0.3.0",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
+    "ts-jest": "^21.2.4",
+    "ts-loader": "^3.2.0",
+    "typescript": "^2.6.2",
     "vue-jest": "^1.3.0",
     "vue-loader": "^13.0.5",
-    "vue-server-renderer": "^2.5.9",
     "vue-template-compiler": "^2.4.4",
     "vue-test-utils": "^1.0.0-beta.7",
     "webpack": "^3.6.0",
@@ -53,22 +43,19 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "!test/unit/utils.js",
+      "!test/unit/utils.ts",
       "src/components/**/*.vue"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/test/karma/"
     ],
     "moduleFileExtensions": [
       "js",
-      "json",
-      "vue"
+      "vue",
+      "ts"
     ],
     "transform": {
-      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
-      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest",
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1"
     },
