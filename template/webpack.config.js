@@ -3,7 +3,7 @@ var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: './src/main.js',
+  entry: './src/index.ts',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/',
@@ -11,12 +11,6 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        enforce: 'pre',
-        test: /\.(js|vue)$/,
-        loader: 'eslint-loader',
-        exclude: /node_modules/
-      },
       {
         test: /\.css$/,
         use: [
@@ -66,9 +60,12 @@ module.exports = {
         }
       },
       {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/,
+        options: {
+          appendTsSuffixTo: [/\.vue$/],
+        }
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
@@ -84,7 +81,7 @@ module.exports = {
       'vue$': 'vue/dist/vue.esm.js',
       '@': path.resolve(__dirname, 'src')
     },
-    extensions: ['*', '.js', '.vue', '.json']
+    extensions: ['*', '.ts', '.js', '.vue', '.json']
   },
   devServer: {
     historyApiFallback: true,

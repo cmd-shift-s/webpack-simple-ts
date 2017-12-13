@@ -19,14 +19,12 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
+<script lang="ts">
+import { Component, Vue } from '@gongzza/vue-property-decorator'
+
+@Component
+export default class App extends Vue {
+  msg: string = 'Welcome to Yout Vue.js App'
 }
 </script>
 
