@@ -22,6 +22,10 @@ $ npm run dev
 
 - `npm run build`: build with HTML/CSS/JS minification.
 
+- `npm test`: test with [Jest](http://facebook.github.io/jest/)
+
+- `npm run lint`: linting with [eslint](https://eslint.org/)
+
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader). Also check out the [breaking changes in vue-loader@9.0.0](https://github.com/vuejs/vue-loader/releases/tag/v9.0.0).
 
 ### Fork It And Make Your Own
