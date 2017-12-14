@@ -1,9 +1,9 @@
-import { mount } from './utils'
+import { mount, Wrapper } from './utils'
 import App from '@/App.vue'
 
 describe('App.vue', () => {
-  it('default', async () => {
-    const wrap = mount(App)
+  it('default', () => {
+    const wrap = mount(App) as Wrapper<App>
 
     expect(wrap.find('h1').text()).toEqual(wrap.vm.msg)
     expect(wrap.vm.$el).toMatchSnapshot()
