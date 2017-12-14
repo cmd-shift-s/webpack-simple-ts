@@ -12,6 +12,12 @@ module.exports = {
   module: {
     rules: [
       {
+        enforce: 'pre',
+        test: /\.tsx?$/,
+        loader: 'tslint-loader',
+        exclude: /node_modules/
+      },
+      {
         test: /\.css$/,
         use: [
           'vue-style-loader',
