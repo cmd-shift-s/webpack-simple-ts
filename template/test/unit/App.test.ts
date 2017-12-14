@@ -1,5 +1,5 @@
 import { mount, Wrapper } from './utils'
-import App from '@/App.vue'
+import App from '@/App'
 
 describe('App.vue', () => {
   it('default', () => {

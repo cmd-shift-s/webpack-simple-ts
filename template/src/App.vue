@@ -20,12 +20,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from '@gongzza/vue-property-decorator'
-
-@Component
-export default class App extends Vue {
-  msg: string = 'Welcome to Yout Vue.js App'
-}
+import App from './App.ts'
+export default App
 </script>
 
 <style{{#sass}} lang="scss"{{/sass}}>
